@@ -1,0 +1,127 @@
+import 'package:get/get.dart';
+
+class LanguageTranslations extends Translations {
+  @override
+  Map<String, Map<String, String>> get keys => {
+        // English language
+        'en_US': {
+          'already_have_account': 'Already have an account?',
+          'choose_language': 'Choose your language',
+          'continue_with': 'Continue with',
+          'dont_have_account': "Don't have an account?",
+          'email': 'Email',
+          'enter_email': 'Enter your email address',
+          'enter_id': 'Enter your ID',
+          'enter_password': 'Enter your password',
+          'enter_password_confirm': 'Enter again your password',
+          'enter_pseudo': 'Enter your pseudo',
+          'error': 'Error',
+          'fill_fields': 'Please ensure to fill all the fields',
+          'forgot_password': 'Forgot password',
+          'hint_success_email_sent_message':
+              'Please check your inbox to reset your password',
+          'language': 'Language',
+          'language_hint': 'Default language',
+          'loading': 'Please wait...',
+          'login': 'Log in',
+          'login_here': 'Log in here',
+          'login_hint_message':
+              'Enter your information to log into your account',
+          'login_message': 'Log in',
+          'login_with_apple': 'Log in with Apple',
+          'login_with_facebook': 'Log in with Facebook',
+          'login_with_google': 'Log in with Google',
+          'mime': 'We make your life easier',
+          'next': 'Next',
+          'no_internet':
+              'No internet connection.\nPlease enable your data or wifi',
+          'password': 'Password',
+          'register': 'Sign up',
+          'register_here': 'Sign up here',
+          'remember_me': 'Remember me',
+          'reset_password': 'Reset password',
+          'reset_password_hint': 'A password reset email will be sent to you',
+          'reset_password_message':
+              'Enter your email address to reset your password',
+          'send': 'Send',
+          'signup_hint_message': 'Create your account to get full profit',
+          'signup_message': 'Sign up',
+          'skip': 'Skip',
+          'splash_subtitle1': 'Create and find events easily in one place',
+          'splash_subtitle2':
+              'Search for events and invite your friends to join',
+          'splash_subtitle3': 'Invite friends to a hot event',
+          'splash_title1': 'Concert',
+          'splash_title2': 'Events',
+          'splash_title3': 'Leisure',
+          'success_email_sent_message': 'Email sent',
+          'change_theme': 'Change Theme',
+          'subscriptions': 'Subscriptions',
+          'logout': 'Logout',
+          'online_member': 'Online members',
+          'last_members': 'Last members',
+        },
+        // French language
+        'fr_FR': {
+          'already_have_account': 'Vous avez déjà un compte ?',
+          'choose_language': 'Choisissez votre langue',
+          'continue_with': 'Continuer avec',
+          'dont_have_account': "Vous n'avez pas de compte ?",
+          'email': 'Email',
+          'enter_email': 'Entrez votre adresse email',
+          'enter_id': 'Entrez votre identifiant',
+          'enter_password': 'Entrez votre mot de passe',
+          'enter_password_confirm': 'Confirmation de votre mot de passe',
+          'enter_pseudo': 'Entrer votre pseudo',
+          'error': 'Erreur',
+          'fill_fields': 'Veuillez remplir tous les champs',
+          'forgot_password': 'Mot de passe oublié',
+          'hello': 'Bonjour le monde',
+          'hint_success_email_sent_message':
+              'Veuillez consulter votre boîte mail pour réinitialiser votre mot de passe',
+          'language': 'Langue',
+          'language_hint': 'Langue par défaut',
+          'loading': 'Veuillez patienter...',
+          'login': 'Se connecter',
+          'login_here': 'Connectez-vous ici',
+          'login_hint_message':
+              'Entrez vos informations pour vous connecter à votre compte',
+          'login_message': 'Connectez-vous',
+          'login_with_apple': 'Se connecter avec Apple',
+          'login_with_facebook': 'Se connecter avec Facebook',
+          'login_with_google': 'Se connecter avec Google',
+          'mime': 'On vous simplifie la vie',
+          'next': 'Suivant',
+          'no_internet':
+              'Pas de connexion internet.\nVeuillez activer vos données ou le wifi',
+          'password': 'Mot de passe',
+          'register': "S'inscrire",
+          'register_here': 'Inscrivez-vous ici',
+          'remember_me': 'Se souvenir de moi',
+          'reset_password': 'Réinitialiser le mot de passe',
+          'reset_password_hint':
+              "Un email de réinitialisation de mot de passe vous sera envoyé",
+          'reset_password_message':
+              'Entrez votre adresse e-mail pour réinitialiser votre mot de passe',
+          'send': 'Envoyer',
+          'signup_hint_message':
+              'Creer un compte et profiter de tous les services',
+          'signup_message': 'Sign up',
+          'skip': 'Passer',
+          'splash_subtitle1':
+              'Créez et trouvez des événements facilement en un seul endroit',
+          'splash_subtitle2':
+              'Recherchez des événements et invitez vos amis à rejoindre',
+          'splash_subtitle3': 'Invitez des amis à un événement chaud',
+          'splash_title1': 'Concert',
+          'splash_title2': 'Événements',
+          'splash_title3': 'Loisirs',
+          'success_email_sent_message': 'Email envoyé',
+          'change_theme': 'Change de Theme',
+          'subscriptions': 'Abonnements',
+          'logout': 'Déconnexion',
+          'online_member': 'Membres en ligne',
+          'last_members': 'Derniers membres',
+        },
+      };
+}
