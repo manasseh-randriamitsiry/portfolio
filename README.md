@@ -1,6 +1,5 @@
 # PROFILE
 
-**2nd year in Professional Master's degree at the National School of Computer Science (ENI)**  
 **DEVELOPER**  
 **RANDRIAMITSIRY Valimbavaka Nandrasana Manassé**
 
@@ -11,7 +10,12 @@
 
 ## EDUCATION AND EXPERIENCE
 
-- **Grade Management LJSA Ambalavao** (Java)
+Here's the English translation:
+
+- **Design and Development of applications with Dart (Permah, Time Master, Fihirana JFF, this portfolio)** (Flutter)
+- **App Development with React-Native**
+- **Grade Management LJSA Ambalavao** (JavaFx, Symfony,twig)
+- **App development with SpingnBoot** (Spring Boot, jsp, mysql)
 - **Car Rental Management** (Angular, ExpressJS)
 - **Library Management** (PHP)
 
@@ -57,7 +61,6 @@
 
 # PROFIL
 
-**2ème année en formation de Master Professionnel à l’École Nationale d'Informatique (ENI)**  
 **DÉVELOPPEUR**  
 **RANDRIAMITSIRY Valimbavaka Nandrasana Manassé**
 
@@ -68,7 +71,10 @@
 
 ## FORMATIONS ET EXPÉRIENCES
 
-- **Gestion des Notes LJSA Ambalavao** (Java)
+- **Design et Developpement des applications avec Dart (Permah, maitre de temps,  Fihirana jff, ce porfolio )** (Flutter)
+- **Développement d'application avec React-Native**
+- **Gestion des notes LJSA Ambalavao** (JavaFX, Symfony, Twig)
+- **Développement d'application avec Spring Boot** (Spring Boot, JSP, MySQL)
 - **Gestion de Location de Voitures** (Angular, ExpressJS)
 - **Gestion de Bibliothèque** (PHP)
 
