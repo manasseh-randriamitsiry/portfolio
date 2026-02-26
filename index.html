@@ -8,6 +8,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round|Material+Icons+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -41,12 +43,26 @@
             outline: "var(--md-sys-color-outline)",
             "outline-variant": "var(--md-sys-color-outline-variant)",
             shadow: "var(--md-sys-color-shadow)",
+            "ios-glass": "var(--ios-glass)",
+            "ios-glass-dark": "var(--ios-glass-dark)",
           },
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
           },
           borderRadius: {
             'md3': '1.75rem',
+            'ios': '2rem',
+            'ios-sm': '1rem',
+            'ios-lg': '2.5rem',
+          },
+          boxShadow: {
+            'ios-soft': '0 8px 32px rgba(0, 0, 0, 0.08)',
+            'ios-heavy': '0 20px 40px rgba(0, 0, 0, 0.15)',
+            'ios-glow': '0 0 40px rgba(var(--md-sys-color-primary-rgb), 0.3)',
+          },
+          backdropBlur: {
+            'ios': '30px',
+            'ios-heavy': '50px',
           }
         },
       },
@@ -54,65 +70,77 @@
   </script>
   <style>
     :root {
-      /* Light Theme */
-      --md-sys-color-primary: #02579c;
+      /* iOS 26 Light Theme - Clean, Vibrant, Subtle */
+      --md-sys-color-primary: #0066FF;
+      /* Vibrant iOS Blue */
       --md-sys-color-on-primary: #ffffff;
-      --md-sys-color-primary-container: #d7e3ff;
-      --md-sys-color-on-primary-container: #001b3e;
-      --md-sys-color-secondary: #565e71;
+      --md-sys-color-primary-container: #E5F0FF;
+      --md-sys-color-on-primary-container: #001A40;
+      --md-sys-color-secondary: #8E8E93;
+      /* iOS System Gray */
       --md-sys-color-on-secondary: #ffffff;
-      --md-sys-color-secondary-container: #dae2f9;
-      --md-sys-color-on-secondary-container: #131c2b;
-      --md-sys-color-tertiary: #715574;
+      --md-sys-color-secondary-container: #F2F2F7;
+      --md-sys-color-on-secondary-container: #1C1C1E;
+      --md-sys-color-tertiary: #FF2D55;
+      /* iOS Pink/Red */
       --md-sys-color-on-tertiary: #ffffff;
-      --md-sys-color-tertiary-container: #fbd7fc;
-      --md-sys-color-on-tertiary-container: #29132e;
-      --md-sys-color-error: #ba1a1a;
+      --md-sys-color-tertiary-container: #FFE5EA;
+      --md-sys-color-on-tertiary-container: #40000C;
+      --md-sys-color-error: #FF3B30;
       --md-sys-color-on-error: #ffffff;
-      --md-sys-color-error-container: #ffdad6;
-      --md-sys-color-on-error-container: #410002;
-      --md-sys-color-background: #fdfcff;
-      --md-sys-color-on-background: #1a1c1e;
-      --md-sys-color-surface: #fdfcff;
-      --md-sys-color-on-surface: #1a1c1e;
-      --md-sys-color-surface-variant: #e1e2ec;
-      --md-sys-color-on-surface-variant: #44474e;
-      --md-sys-color-surface-container: #f0f0f3;
-      --md-sys-color-surface-container-high: #eaeaed;
-      --md-sys-color-outline: #74777f;
-      --md-sys-color-outline-variant: #c4c6cf;
-      --md-sys-color-shadow: rgba(0, 0, 0, 0.15);
+      --md-sys-color-error-container: #FFE5E5;
+      --md-sys-color-on-error-container: #400000;
+      --md-sys-color-background: #F2F2F7;
+      /* Classic iOS Light Gray Background */
+      --md-sys-color-on-background: #000000;
+      --md-sys-color-surface: #FFFFFF;
+      --md-sys-color-on-surface: #1C1C1E;
+      --md-sys-color-surface-variant: #E5E5EA;
+      --md-sys-color-on-surface-variant: #3A3A3C;
+      --md-sys-color-surface-container: #FFFFFF;
+      --md-sys-color-surface-container-high: #F2F2F7;
+      --md-sys-color-outline: #C7C7CC;
+      --md-sys-color-outline-variant: #D1D1D6;
+      --md-sys-color-shadow: rgba(0, 0, 0, 0.08);
+      --ios-glass: rgba(255, 255, 255, 0.7);
+      --ios-glass-dark: rgba(255, 255, 255, 0.5);
     }
 
     .dark {
-      /* Dark Theme - M3 Indigo/Blue */
-      --md-sys-color-primary: #abc7ff;
-      --md-sys-color-on-primary: #002f65;
-      --md-sys-color-primary-container: #00458e;
-      --md-sys-color-on-primary-container: #d7e3ff;
-      --md-sys-color-secondary: #bec6dc;
-      --md-sys-color-on-secondary: #283141;
-      --md-sys-color-secondary-container: #3f4759;
-      --md-sys-color-on-secondary-container: #dae2f9;
-      --md-sys-color-tertiary: #dcbce0;
-      --md-sys-color-on-tertiary: #3e2844;
-      --md-sys-color-tertiary-container: #563e5c;
-      --md-sys-color-on-tertiary-container: #fbd7fc;
-      --md-sys-color-error: #ffb4ab;
-      --md-sys-color-on-error: #690005;
-      --md-sys-color-error-container: #93000a;
-      --md-sys-color-on-error-container: #ffdad6;
-      --md-sys-color-background: #111318;
-      --md-sys-color-on-background: #e2e2e6;
-      --md-sys-color-surface: #111318;
-      --md-sys-color-on-surface: #e2e2e6;
-      --md-sys-color-surface-variant: #44474e;
-      --md-sys-color-on-surface-variant: #c4c6cf;
-      --md-sys-color-surface-container: #1d1f24;
-      --md-sys-color-surface-container-high: #282a2f;
-      --md-sys-color-outline: #8e9099;
-      --md-sys-color-outline-variant: #44474e;
+      /* iOS 26 Dark Theme - Deep True Blacks and Vibrant Accents */
+      --md-sys-color-primary: #0A84FF;
+      /* Vibrant iOS Dark Blue */
+      --md-sys-color-on-primary: #ffffff;
+      --md-sys-color-primary-container: #002255;
+      --md-sys-color-on-primary-container: #E5F0FF;
+      --md-sys-color-secondary: #98989D;
+      /* iOS System Gray Dark */
+      --md-sys-color-on-secondary: #000000;
+      --md-sys-color-secondary-container: #3A3A3C;
+      --md-sys-color-on-secondary-container: #E5E5EA;
+      --md-sys-color-tertiary: #FF375F;
+      --md-sys-color-on-tertiary: #000000;
+      --md-sys-color-tertiary-container: #550015;
+      --md-sys-color-on-tertiary-container: #FFE5EA;
+      --md-sys-color-error: #FF453A;
+      --md-sys-color-on-error: #000000;
+      --md-sys-color-error-container: #550000;
+      --md-sys-color-on-error-container: #FFE5E5;
+      --md-sys-color-background: #000000;
+      /* Deep True Black for OLED */
+      --md-sys-color-on-background: #FFFFFF;
+      --md-sys-color-surface: #1C1C1E;
+      /* Elevated Dark Surface */
+      --md-sys-color-on-surface: #F2F2F7;
+      --md-sys-color-surface-variant: #2C2C2E;
+      --md-sys-color-on-surface-variant: #C7C7CC;
+      --md-sys-color-surface-container: #1C1C1E;
+      --md-sys-color-surface-container-high: #2C2C2E;
+      --md-sys-color-outline: #48484A;
+      --md-sys-color-outline-variant: #3A3A3C;
       --md-sys-color-shadow: rgba(0, 0, 0, 0.5);
+      --ios-glass: rgba(28, 28, 30, 0.65);
+      --ios-glass-dark: rgba(28, 28, 30, 0.85);
     }
 
     body {

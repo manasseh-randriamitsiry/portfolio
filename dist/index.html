@@ -1,42 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manasseh Randriamitsiry - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round|Material+Icons+Outlined" rel="stylesheet" />
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              primary: "#02579c",
-              "primary-container": "#d1e4ff",
-              "on-primary-container": "#001d36",
-              surface: "#ffffff",
-              "surface-variant": "#e1e2e6",
-              background: "#f5f7f8",
-            },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-            borderRadius: {
-              'md3': '1.75rem',
-            }
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manasse Randriamitsiry - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round|Material+Icons+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: "var(--md-sys-color-primary)",
+            "on-primary": "var(--md-sys-color-on-primary)",
+            "primary-container": "var(--md-sys-color-primary-container)",
+            "on-primary-container": "var(--md-sys-color-on-primary-container)",
+            secondary: "var(--md-sys-color-secondary)",
+            "on-secondary": "var(--md-sys-color-on-secondary)",
+            "secondary-container": "var(--md-sys-color-secondary-container)",
+            "on-secondary-container": "var(--md-sys-color-on-secondary-container)",
+            tertiary: "var(--md-sys-color-tertiary)",
+            "on-tertiary": "var(--md-sys-color-on-tertiary)",
+            "tertiary-container": "var(--md-sys-color-tertiary-container)",
+            "on-tertiary-container": "var(--md-sys-color-on-tertiary-container)",
+            error: "var(--md-sys-color-error)",
+            "on-error": "var(--md-sys-color-on-error)",
+            "error-container": "var(--md-sys-color-error-container)",
+            "on-error-container": "var(--md-sys-color-on-error-container)",
+            background: "var(--md-sys-color-background)",
+            "on-background": "var(--md-sys-color-on-background)",
+            surface: "var(--md-sys-color-surface)",
+            "on-surface": "var(--md-sys-color-on-surface)",
+            "surface-variant": "var(--md-sys-color-surface-variant)",
+            "on-surface-variant": "var(--md-sys-color-on-surface-variant)",
+            "surface-container": "var(--md-sys-color-surface-container)",
+            "surface-container-high": "var(--md-sys-color-surface-container-high)",
+            outline: "var(--md-sys-color-outline)",
+            "outline-variant": "var(--md-sys-color-outline-variant)",
+            shadow: "var(--md-sys-color-shadow)",
+            "ios-glass": "var(--ios-glass)",
+            "ios-glass-dark": "var(--ios-glass-dark)",
           },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+          borderRadius: {
+            'md3': '1.75rem',
+            'ios': '2rem',
+            'ios-sm': '1rem',
+            'ios-lg': '2.5rem',
+          },
+          boxShadow: {
+            'ios-soft': '0 8px 32px rgba(0, 0, 0, 0.08)',
+            'ios-heavy': '0 20px 40px rgba(0, 0, 0, 0.15)',
+            'ios-glow': '0 0 40px rgba(var(--md-sys-color-primary-rgb), 0.3)',
+          },
+          backdropBlur: {
+            'ios': '30px',
+            'ios-heavy': '50px',
+          }
         },
-      }
-    </script>
-    <style>
-        body { background-color: #f5f7f8; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-    </style>
+      },
+    }
+  </script>
+  <style>
+    :root {
+      /* iOS 26 Light Theme - Clean, Vibrant, Subtle */
+      --md-sys-color-primary: #0066FF;
+      /* Vibrant iOS Blue */
+      --md-sys-color-on-primary: #ffffff;
+      --md-sys-color-primary-container: #E5F0FF;
+      --md-sys-color-on-primary-container: #001A40;
+      --md-sys-color-secondary: #8E8E93;
+      /* iOS System Gray */
+      --md-sys-color-on-secondary: #ffffff;
+      --md-sys-color-secondary-container: #F2F2F7;
+      --md-sys-color-on-secondary-container: #1C1C1E;
+      --md-sys-color-tertiary: #FF2D55;
+      /* iOS Pink/Red */
+      --md-sys-color-on-tertiary: #ffffff;
+      --md-sys-color-tertiary-container: #FFE5EA;
+      --md-sys-color-on-tertiary-container: #40000C;
+      --md-sys-color-error: #FF3B30;
+      --md-sys-color-on-error: #ffffff;
+      --md-sys-color-error-container: #FFE5E5;
+      --md-sys-color-on-error-container: #400000;
+      --md-sys-color-background: #F2F2F7;
+      /* Classic iOS Light Gray Background */
+      --md-sys-color-on-background: #000000;
+      --md-sys-color-surface: #FFFFFF;
+      --md-sys-color-on-surface: #1C1C1E;
+      --md-sys-color-surface-variant: #E5E5EA;
+      --md-sys-color-on-surface-variant: #3A3A3C;
+      --md-sys-color-surface-container: #FFFFFF;
+      --md-sys-color-surface-container-high: #F2F2F7;
+      --md-sys-color-outline: #C7C7CC;
+      --md-sys-color-outline-variant: #D1D1D6;
+      --md-sys-color-shadow: rgba(0, 0, 0, 0.08);
+      --ios-glass: rgba(255, 255, 255, 0.7);
+      --ios-glass-dark: rgba(255, 255, 255, 0.5);
+    }
+
+    .dark {
+      /* iOS 26 Dark Theme - Deep True Blacks and Vibrant Accents */
+      --md-sys-color-primary: #0A84FF;
+      /* Vibrant iOS Dark Blue */
+      --md-sys-color-on-primary: #ffffff;
+      --md-sys-color-primary-container: #002255;
+      --md-sys-color-on-primary-container: #E5F0FF;
+      --md-sys-color-secondary: #98989D;
+      /* iOS System Gray Dark */
+      --md-sys-color-on-secondary: #000000;
+      --md-sys-color-secondary-container: #3A3A3C;
+      --md-sys-color-on-secondary-container: #E5E5EA;
+      --md-sys-color-tertiary: #FF375F;
+      --md-sys-color-on-tertiary: #000000;
+      --md-sys-color-tertiary-container: #550015;
+      --md-sys-color-on-tertiary-container: #FFE5EA;
+      --md-sys-color-error: #FF453A;
+      --md-sys-color-on-error: #000000;
+      --md-sys-color-error-container: #550000;
+      --md-sys-color-on-error-container: #FFE5E5;
+      --md-sys-color-background: #000000;
+      /* Deep True Black for OLED */
+      --md-sys-color-on-background: #FFFFFF;
+      --md-sys-color-surface: #1C1C1E;
+      /* Elevated Dark Surface */
+      --md-sys-color-on-surface: #F2F2F7;
+      --md-sys-color-surface-variant: #2C2C2E;
+      --md-sys-color-on-surface-variant: #C7C7CC;
+      --md-sys-color-surface-container: #1C1C1E;
+      --md-sys-color-surface-container-high: #2C2C2E;
+      --md-sys-color-outline: #48484A;
+      --md-sys-color-outline-variant: #3A3A3C;
+      --md-sys-color-shadow: rgba(0, 0, 0, 0.5);
+      --ios-glass: rgba(28, 28, 30, 0.65);
+      --ios-glass-dark: rgba(28, 28, 30, 0.85);
+    }
+
+    body {
+      background-color: var(--md-sys-color-background);
+      color: var(--md-sys-color-on-background);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--md-sys-color-outline);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--md-sys-color-outline-variant);
+    }
+  </style>
 
   <script type="importmap">
 {
@@ -47,10 +176,12 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-wCMOjStI.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DbybqrMw.css">
+  <script type="module" crossorigin src="/assets/index-Be8Mznuc.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-D2N8Ls41.css">
 </head>
-  <body>
-    <div id="root"></div>
+
+<body>
+  <div id="root"></div>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ViewState } from '../types';
+import { motion } from 'framer-motion';
 
 interface NavRailProps {
   currentView: ViewState;
@@ -14,43 +15,52 @@ export const NavRail: React.FC<NavRailProps> = ({ currentView, setView, toggleTh
     return (
       <button
         onClick={() => setView(view)}
-        className={`group flex flex-col items-center gap-1 w-full py-3 relative transition-all duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-on-surface'}`}
+        className={`group flex flex-col items-center justify-center w-14 h-14 relative transition-all duration-300`}
       >
-        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 ${isActive ? 'bg-primary-container text-on-primary-container' : 'group-hover:bg-surface-variant/30 text-on-surface-variant'}`}>
-          <span className={`material-icons-round text-xl transition-colors`}>{icon}</span>
-        </div>
-        <span className={`text-[10px] font-medium transition-colors ${isActive ? 'font-bold text-on-surface' : 'text-on-surface-variant'}`}>{label}</span>
+        {isActive && (
+          <motion.div
+            layoutId="nav-rail-indicator"
+            className="absolute inset-0 bg-primary/10 dark:bg-primary/20 rounded-[1.25rem]"
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+          />
+        )}
+        <span
+          className={`material-icons-round text-[22px] relative z-10 transition-colors duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant group-hover:text-on-surface'
+            }`}
+        >
+          {icon}
+        </span>
+        <span
+          className={`text-[9px] font-bold mt-0.5 relative z-10 transition-colors duration-300 ${isActive ? 'text-primary opacity-100' : 'text-on-surface-variant opacity-70 group-hover:opacity-100'
+            }`}
+        >
+          {label}
+        </span>
       </button>
     );
   };
 
   return (
     <nav className="hidden md:flex flex-col items-center fixed left-6 top-1/2 -translate-y-1/2 z-50">
-      {/* Main Navigation Pill */}
-      <div className="bg-surface-container-high/95 backdrop-blur-md shadow-xl shadow-shadow/20 border border-outline-variant/20 rounded-[2rem] p-3 flex flex-col items-center gap-2">
-        {/* Navigation Items */}
+      <div className="glass-panel p-2 flex flex-col items-center gap-2 rounded-ios-lg shadow-ios-heavy">
         <NavItem view="home" icon="home" label="Home" />
         <NavItem view="works" icon="layers" label="Works" />
         <NavItem view="resume" icon="person" label="Resume" />
         <NavItem view="contact" icon="email" label="Contact" />
 
-        {/* Divider */}
-        <div className="w-8 h-[1px] bg-outline-variant/30 my-1"></div>
-
-        {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
-          className="w-12 h-12 rounded-xl hover:bg-surface-variant/30 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all"
+          className="w-12 h-12 rounded-[1rem] hover:bg-surface-variant/30 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all group"
         >
-          <span className="material-icons-round text-xl">{isDark ? 'light_mode' : 'dark_mode'}</span>
+          <motion.span
+            className="material-icons-round text-xl"
+            initial={false}
+            animate={{ rotate: isDark ? 180 : 0 }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+          >
+            {isDark ? 'light_mode' : 'dark_mode'}
+          </motion.span>
         </button>
-
-        {/* Profile Image */}
-        <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9CrtA0d-eZnbauheoaM4sgUkvp7X29UYH5tS12RC7oUqPwpdzyBcy5WYQoAVJ5PUP2V3Q-7A0Xc0ro_Zh1BtnuwpzaRj1sdVt_9emd-KqZkq1Xf76U9yDYfUUMpTd9cqq_Ib_ShpaHBggjB2Zl6bqhS2XSBg1NXNma0ZIlYB7M2M4x2yTbJRhFjXgf4Xf6o-Ln6a4j03rdiZ2usCrBZYhcXIpcbFi8iMr8tq1Yup-YNkfOdsJTgA6eHiwR2OqzXmAefV7pVrJkg"
-          alt="Profile"
-          className="w-10 h-10 rounded-full object-cover border-2 border-outline-variant shadow-sm mt-1"
-        />
       </div>
     </nav>
   );
