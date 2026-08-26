@@ -5,16 +5,20 @@ import { motion } from 'framer-motion';
 interface NavRailProps {
   currentView: ViewState;
   setView: (view: ViewState) => void;
+  preloadView: (view: ViewState) => Promise<unknown>;
   toggleTheme: () => void;
   isDark: boolean;
 }
 
-export const NavRail: React.FC<NavRailProps> = ({ currentView, setView, toggleTheme, isDark }) => {
+export const NavRail: React.FC<NavRailProps> = ({ currentView, setView, preloadView, toggleTheme, isDark }) => {
   const NavItem = ({ view, icon, label }: { view: ViewState; icon: string; label: string }) => {
     const isActive = currentView === view;
     return (
       <button
         onClick={() => setView(view)}
+        onPointerEnter={() => preloadView(view)}
+        onFocus={() => preloadView(view)}
+        onTouchStart={() => preloadView(view)}
         className={`group flex flex-col items-center justify-center w-14 h-14 relative transition-all duration-300`}
       >
         {isActive && (

@@ -61,6 +61,8 @@ const ProjectCard: React.FC<{ repo: Repository, index: number }> = ({ repo, inde
                     transition={{ duration: 0.7 }}
                     src={imageUrl}
                     alt={repo.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
@@ -111,8 +113,8 @@ export const ProjectsView: React.FC = () => {
         >
             <div className="flex items-center justify-between mb-10">
                 <div>
-                    <h1 className="text-3xl md:text-4xl font-extrabold text-on-surface tracking-tight">Experience & Projects</h1>
-                    <p className="text-on-surface-variant/80 text-xs font-bold uppercase tracking-widest mt-2">Career Timeline</p>
+                    <h1 className="text-3xl md:text-4xl font-extrabold text-on-surface tracking-tight">Malagasy Developer Projects & Experience</h1>
+                    <p className="text-on-surface-variant/80 text-xs font-bold uppercase tracking-widest mt-2">Flutter, Symfony, React & PHP career timeline</p>
                 </div>
             </div>
 

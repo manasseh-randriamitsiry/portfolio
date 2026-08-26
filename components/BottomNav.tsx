@@ -5,14 +5,18 @@ import { motion } from 'framer-motion';
 interface BottomNavProps {
   currentView: ViewState;
   setView: (view: ViewState) => void;
+  preloadView: (view: ViewState) => Promise<unknown>;
 }
 
-export const BottomNav: React.FC<BottomNavProps> = ({ currentView, setView }) => {
+export const BottomNav: React.FC<BottomNavProps> = ({ currentView, setView, preloadView }) => {
   const NavItem = ({ view, icon, label }: { view: ViewState; icon: string; label: string }) => {
     const isActive = currentView === view;
     return (
       <button
         onClick={() => setView(view)}
+        onPointerEnter={() => preloadView(view)}
+        onFocus={() => preloadView(view)}
+        onTouchStart={() => preloadView(view)}
         className="relative flex flex-col items-center justify-center w-16 h-16 group"
       >
         {isActive && (

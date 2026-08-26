@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { NavRail } from './components/NavRail';
 import { BottomNav } from './components/BottomNav';
 import { HomeView } from './views/HomeView';
-import { ProjectsView } from './views/ProjectsView';
-import { ResumeView } from './views/ResumeView';
-import { ContactView } from './views/ContactView';
+import { SeoManager } from './components/SeoManager';
+import { loadContactView, loadProjectsView, loadResumeView, preloadView } from './views/preloaders';
 import { ViewState } from './types';
 import { AnimatePresence, motion } from 'framer-motion';
+
+const ProjectsView = React.lazy(loadProjectsView);
+const ResumeView = React.lazy(loadResumeView);
+const ContactView = React.lazy(loadContactView);
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<ViewState>('home');
@@ -38,21 +41,28 @@ const App: React.FC = () => {
     setIsMobilePreview(!isMobilePreview);
   };
 
+  const navigateTo = (view: ViewState) => {
+    preloadView(view);
+    setCurrentView(view);
+  };
+
   const renderView = () => {
     switch (currentView) {
-      case 'home': return <HomeView setView={setCurrentView} />;
+      case 'home': return <HomeView setView={navigateTo} preloadView={preloadView} />;
       case 'works': return <ProjectsView />;
       case 'resume': return <ResumeView />;
       case 'contact': return <ContactView />;
-      default: return <HomeView setView={setCurrentView} />;
+      default: return <HomeView setView={navigateTo} preloadView={preloadView} />;
     }
   };
 
   const appContent = (
     <>
+      <SeoManager currentView={currentView} />
       <NavRail
         currentView={currentView}
-        setView={setCurrentView}
+        setView={navigateTo}
+        preloadView={preloadView}
         toggleTheme={toggleTheme}
         isDark={isDark}
       />
@@ -64,7 +74,7 @@ const App: React.FC = () => {
           <div className="md:hidden sticky top-0 z-40 glass-panel px-6 py-4 flex justify-between items-center border-b-0 shadow-sm">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden shadow-ios-soft bg-surface-variant/50 border border-outline-variant/30">
-                <img src="https://avatars.githubusercontent.com/u/70688966?v=4&size=64" alt="Manassé" className="w-full h-full object-cover" />
+                <img src="https://avatars.githubusercontent.com/u/70688966?v=4&size=64" alt="Manassé" decoding="async" className="w-full h-full object-cover" />
               </div>
               <span className="font-bold text-on-surface text-lg tracking-tight">Manassé</span>
             </div>
@@ -94,13 +104,15 @@ const App: React.FC = () => {
               exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
               transition={{ type: 'spring', stiffness: 260, damping: 20 }}
             >
-              {renderView()}
+              <Suspense fallback={<div className="min-h-48 flex items-center justify-center text-on-surface-variant">Loading…</div>}>
+                {renderView()}
+              </Suspense>
             </motion.div>
           </AnimatePresence>
         </div>
       </main>
 
-      <BottomNav currentView={currentView} setView={setCurrentView} />
+      <BottomNav currentView={currentView} setView={navigateTo} preloadView={preloadView} />
     </>
   );
 

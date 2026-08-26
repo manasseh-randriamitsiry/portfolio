@@ -47,7 +47,7 @@ export const ContactView: React.FC = () => {
                 <h1 className="text-on-surface tracking-tight text-4xl font-extrabold leading-tight">
                     Get in <span className="text-primary">Touch</span>
                 </h1>
-                <p className="text-on-surface-variant/80 mt-2 text-base">Have a project in mind? Let's build something amazing together.</p>
+                <p className="text-on-surface-variant/80 mt-2 text-base">Need a Flutter or full-stack developer in Madagascar—or a remote collaborator? Let’s build something useful together.</p>
             </motion.div>
 
             {/* Contact Form */}

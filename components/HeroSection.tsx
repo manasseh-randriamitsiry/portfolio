@@ -4,9 +4,10 @@ import { motion } from 'framer-motion';
 
 interface HeroSectionProps {
   setView: (view: ViewState) => void;
+  preloadView: (view: ViewState) => Promise<unknown>;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ setView }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ setView, preloadView }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -21,7 +22,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ setView }) => {
   };
 
   return (
-    <motion.div
+    <motion.section
       className="flex flex-col gap-6 md:gap-8 mb-10"
       variants={containerVariants}
       initial="hidden"
@@ -33,15 +34,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ setView }) => {
         Available for Projects
       </motion.div>
 
-      {/* Heading */}
       <motion.div variants={itemVariants}>
         <h1 className="text-4xl md:text-[3.5rem] font-bold text-on-surface leading-[1.1] mb-4 tracking-tight">
+          <span className="text-primary bg-clip-text">Manassé</span><br />
           Randriamitsiry<br />
-          Valimbavaka<br />
-          <span className="text-primary bg-clip-text">Manassé</span>
+          Valimbavaka
         </h1>
         <p className="text-base md:text-lg text-on-surface-variant/90 font-medium leading-relaxed max-w-md">
-          FullStack Developer | Flutter, Symfony & React Expert crafting high-performance digital experiences.
+          Malagasy full-stack developer building high-performance Flutter mobile apps and Symfony, React, and PHP web experiences.
         </p>
       </motion.div>
 
@@ -50,6 +50,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ setView }) => {
         <motion.button
           whileHover={{ scale: 1.02, y: -2 }}
           whileTap={{ scale: 0.96 }}
+          onPointerEnter={() => preloadView('works')}
+          onFocus={() => preloadView('works')}
+          onTouchStart={() => preloadView('works')}
           onClick={() => setView('works')}
           className="h-14 px-8 bg-primary text-on-primary rounded-ios font-semibold text-base flex items-center justify-center gap-2 transition-shadow shadow-ios-soft hover:shadow-ios-heavy"
         >
@@ -75,7 +78,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ setView }) => {
         </motion.button>
       </motion.div>
 
-      {/* Tech Expertise Row */}
       <motion.div variants={itemVariants} className="mt-6 p-6 glass-panel rounded-ios-lg shadow-sm border border-outline-variant/20 relative overflow-hidden">
         {/* Subtle background glow */}
         <div className="absolute -right-20 -top-20 w-40 h-40 bg-primary/10 rounded-full blur-[40px] pointer-events-none"></div>
@@ -84,7 +86,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ setView }) => {
           <div className="w-10 h-10 rounded-full bg-secondary-container/50 flex items-center justify-center text-primary backdrop-blur-md border border-primary/10">
             <span className="material-icons-round text-sm">code</span>
           </div>
-          <span className="font-bold text-on-surface text-sm uppercase tracking-wider">Tech Stack</span>
+          <h2 className="font-bold text-on-surface text-sm uppercase tracking-wider">Core development stack</h2>
         </div>
         <div className="flex flex-wrap gap-2 relative z-10">
           {['Flutter', 'Symfony', 'React', 'Node.js', 'Tailwind'].map(tech => (
@@ -98,6 +100,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ setView }) => {
           ))}
         </div>
       </motion.div>
-    </motion.div>
+    </motion.section>
   );
 };
