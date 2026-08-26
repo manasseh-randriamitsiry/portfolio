@@ -68,7 +68,7 @@ const AboutPreview = () => (
     </div>
     <h2 id="about-manasseh" className="text-xl font-bold text-on-surface mb-3 tracking-tight z-10">Malagasy developer, building for the web and mobile</h2>
     <p className="text-on-surface-variant/90 text-sm font-medium max-w-sm leading-relaxed z-10">
-      I’m Manassé Randriamitsiry Valimbavaka—also known online as Manasseh Randriamitsiry. From Fianarantsoa, Madagascar, I create maintainable Flutter, Symfony, React, and PHP products for teams that value thoughtful user experiences.
+      I’m Manassé Randriamitsiry Valimbavaka. I also known as Manasse Randriamitsiry and Manasseh Randriamitsiry online. From Fianarantsoa, Madagascar, I create maintainable Flutter, Symfony, React, and PHP products for teams that value thoughtful user experiences.
     </p>
     <p lang="fr" className="text-on-surface-variant/80 text-sm mt-3 max-w-sm leading-relaxed z-10">
       Développeur malgache, je collabore aussi en français sur des applications mobiles Flutter et des produits web full-stack.

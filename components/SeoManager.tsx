@@ -4,7 +4,7 @@ import { ViewState } from '../types';
 const PAGE_METADATA: Record<ViewState, { title: string; description: string }> = {
   home: {
     title: 'Manassé Randriamitsiry Valimbavaka | Malagasy Full-Stack Developer',
-    description: 'Portfolio of Manassé (Manasseh) Randriamitsiry Valimbavaka, a Malagasy full-stack developer in Fianarantsoa specializing in Flutter, Symfony, React, PHP, and mobile applications.'
+    description: 'Portfolio of Manassé, Manasse, and Manasseh Randriamitsiry Valimbavaka, a Malagasy full-stack developer in Fianarantsoa specializing in Flutter, Symfony, React, PHP, and mobile applications.'
   },
   works: {
     title: 'Flutter, Symfony & React Projects | Manassé Randriamitsiry',
