@@ -472,9 +472,9 @@ textarea:disabled {
 }
 
 .hero__figure {
-  grid-column: 1 / 4;
+  grid-column: 1 / 5;
   min-width: 0;
-  max-width: 280px;
+  max-width: 320px;
 }
 
 .hero__caption {
@@ -485,10 +485,11 @@ textarea:disabled {
 
 .hero__name {
   font-family: var(--font-display);
-  font-size: var(--text-xl);
-  line-height: 1.15;
+  font-size: var(--text-lg);
+  line-height: 1.2;
   letter-spacing: var(--tracking-display);
   overflow-wrap: break-word;
+  hyphens: none;
   min-width: 0;
 }
 
@@ -592,7 +593,7 @@ textarea:disabled {
 }
 
 .who__text {
-  grid-column: 5 / 13;
+  grid-column: 6 / 13;
   align-self: center;
   display: flex;
   flex-direction: column;

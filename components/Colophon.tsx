@@ -1,12 +1,12 @@
 import React from 'react';
-import { GITHUB_URL } from '../constants';
+import { FULL_NAME, GITHUB_URL } from '../constants';
 
 export const Colophon: React.FC = () => {
   return (
     <footer className="colophon">
       <div className="container grid">
         <p className="colophon__name">
-          Manassé Randriamitsiry Valimbavaka Nandrasana
+          {FULL_NAME}
           <span>Flutter and full-stack developer, Fianarantsoa, Madagascar</span>
         </p>
 

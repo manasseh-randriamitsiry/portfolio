@@ -4,7 +4,10 @@ export const PROFILE_IMAGE = "https://lh3.googleusercontent.com/a/ACg8ocLCHN66F8
 
 // The full name, surname first as it is written on documents. Every part of it
 // appears in the page and its metadata so a search for any one word finds it.
-export const FULL_NAME = "Manassé Randriamitsiry Valimbavaka Nandrasana";
+export const FULL_NAME = "RANDRIAMITSIRY Valimbavaka Nandrasana Manassé";
+
+// The same name inside a sentence, where the capitalised surname would shout.
+export const FULL_NAME_IN_PROSE = "Randriamitsiry Valimbavaka Nandrasana Manassé";
 
 // The portrait shown on the home page; the user's own GitHub avatar.
 export const PORTRAIT_IMAGE = "https://avatars.githubusercontent.com/u/70688966?v=4&size=512";

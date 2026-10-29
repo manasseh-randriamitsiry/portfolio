@@ -1,6 +1,6 @@
 import React from 'react';
 import { ViewState } from '../types';
-import { FULL_NAME, PORTRAIT_IMAGE } from '../constants';
+import { FULL_NAME, FULL_NAME_IN_PROSE, PORTRAIT_IMAGE } from '../constants';
 
 interface HeroSectionProps {
   setView: (view: ViewState) => void;
@@ -61,11 +61,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ setView, preloadView }
             <div
               className="figure__slot"
               data-slot="portrait"
-              data-alt="A portrait of Manassé Randriamitsiry, photographed in Fianarantsoa"
+              data-alt={`A portrait of ${FULL_NAME_IN_PROSE}, photographed in Fianarantsoa`}
             >
               <img
                 src={PORTRAIT_IMAGE}
-                alt={`Portrait of ${FULL_NAME}`}
+                alt={`Portrait of ${FULL_NAME_IN_PROSE}`}
                 width="512"
                 height="512"
                 fetchPriority="high"
@@ -81,7 +81,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ setView, preloadView }
           <div className="who__text">
             <h2 id="who-title">Building for web and mobile</h2>
             <p className="lead">
-              I’m {FULL_NAME}, a full-stack developer in Fianarantsoa. I build Flutter apps and
+              I’m {FULL_NAME_IN_PROSE}, a full-stack developer in Fianarantsoa. I build Flutter apps and
               the Symfony, React and PHP services behind them.
             </p>
             <p lang="fr">
