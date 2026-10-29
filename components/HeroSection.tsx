@@ -1,6 +1,6 @@
 import React from 'react';
 import { ViewState } from '../types';
-import { motion } from 'framer-motion';
+import { FULL_NAME, PORTRAIT_IMAGE } from '../constants';
 
 interface HeroSectionProps {
   setView: (view: ViewState) => void;
@@ -8,98 +8,90 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ setView, preloadView }) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
-  };
-
   return (
-    <motion.section
-      className="flex flex-col gap-6 md:gap-8 mb-10"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      {/* Badge */}
-      <motion.div variants={itemVariants} className="self-start inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold border border-primary/20 shadow-sm backdrop-blur-md">
-        <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(var(--md-sys-color-primary-rgb),0.8)]"></span>
-        Available for Projects
-      </motion.div>
-
-      <motion.div variants={itemVariants}>
-        <h1 className="text-4xl md:text-[3.5rem] font-bold text-on-surface leading-[1.1] mb-4 tracking-tight">
-          <span className="text-primary bg-clip-text">Manassé</span><br />
-          Randriamitsiry<br />
-          Valimbavaka
-        </h1>
-        <p className="text-base md:text-lg text-on-surface-variant/90 font-medium leading-relaxed max-w-md">
-          Malagasy full-stack developer building high-performance Flutter mobile apps and Symfony, React, and PHP web experiences.
-        </p>
-      </motion.div>
-
-      {/* Buttons */}
-      <motion.div variants={itemVariants} className="flex flex-col md:flex-row gap-4 w-full md:w-auto mt-2">
-        <motion.button
-          whileHover={{ scale: 1.02, y: -2 }}
-          whileTap={{ scale: 0.96 }}
-          onPointerEnter={() => preloadView('works')}
-          onFocus={() => preloadView('works')}
-          onTouchStart={() => preloadView('works')}
-          onClick={() => setView('works')}
-          className="h-14 px-8 bg-primary text-on-primary rounded-ios font-semibold text-base flex items-center justify-center gap-2 transition-shadow shadow-ios-soft hover:shadow-ios-heavy"
-        >
-          Explore Projects
-          <span className="material-icons-round text-lg">arrow_forward</span>
-        </motion.button>
-
-        <motion.button
-          whileHover={{ scale: 1.02, y: -2 }}
-          whileTap={{ scale: 0.96 }}
-          onClick={() => {
-            const link = document.createElement('a');
-            link.href = '/assets/resume-en.pdf';
-            link.download = 'Manasseh_Resume_EN.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          }}
-          className="h-14 px-8 glass-panel text-on-surface rounded-ios font-semibold text-base flex items-center justify-center gap-2 transition-shadow shadow-sm hover:shadow-md border border-outline-variant/30"
-        >
-          Download CV
-          <span className="material-icons-round text-primary text-lg">download</span>
-        </motion.button>
-      </motion.div>
-
-      <motion.div variants={itemVariants} className="mt-6 p-6 glass-panel rounded-ios-lg shadow-sm border border-outline-variant/20 relative overflow-hidden">
-        {/* Subtle background glow */}
-        <div className="absolute -right-20 -top-20 w-40 h-40 bg-primary/10 rounded-full blur-[40px] pointer-events-none"></div>
-
-        <div className="flex items-center gap-3 mb-4 relative z-10">
-          <div className="w-10 h-10 rounded-full bg-secondary-container/50 flex items-center justify-center text-primary backdrop-blur-md border border-primary/10">
-            <span className="material-icons-round text-sm">code</span>
-          </div>
-          <h2 className="font-bold text-on-surface text-sm uppercase tracking-wider">Core development stack</h2>
+    <section className="hero" aria-labelledby="hero-title">
+      <div className="container grid">
+        <div className="hero__head">
+          <h1 id="hero-title">Flutter on the phone, Symfony behind.</h1>
+          <p className="lead">
+            Flutter apps from Fianarantsoa, shipped through TestFlight to the App Store.
+          </p>
         </div>
-        <div className="flex flex-wrap gap-2 relative z-10">
-          {['Flutter', 'Symfony', 'React', 'Node.js', 'Tailwind'].map(tech => (
-            <motion.span
-              whileHover={{ scale: 1.05 }}
-              key={tech}
-              className="px-4 py-2 bg-surface/50 dark:bg-surface-variant/50 backdrop-blur-sm rounded-full text-xs font-semibold text-on-surface border border-outline-variant/30 hover:border-primary/50 transition-colors shadow-sm cursor-default"
+
+        <div className="hero__foot">
+          <div className="hero__actions">
+            <button
+              type="button"
+              className="btn btn--primary"
+              onPointerEnter={() => preloadView('works')}
+              onFocus={() => preloadView('works')}
+              onTouchStart={() => preloadView('works')}
+              onClick={() => setView('works')}
             >
-              {tech}
-            </motion.span>
-          ))}
+              See the work
+            </button>
+            <button
+              type="button"
+              className="btn btn--ghost"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/assets/resume-en.pdf';
+                link.download = 'Manasseh_Resume_EN.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
+              Download CV
+            </button>
+          </div>
         </div>
-      </motion.div>
-    </motion.section>
+
+        {/* The claim's right seat: the one proof the prompt gave, set as a record. */}
+        <div className="hero__seat">
+          <p className="hero__seat-note">Shipped through</p>
+          <ol className="hero__seat-list">
+            <li>TestFlight</li>
+            <li>App Store</li>
+          </ol>
+        </div>
+
+        <div className="hero__id" id="about-manasseh">
+          <figure className="figure hero__figure">
+            <div
+              className="figure__slot"
+              data-slot="portrait"
+              data-alt="A portrait of Manassé Randriamitsiry, photographed in Fianarantsoa"
+            >
+              <img
+                src={PORTRAIT_IMAGE}
+                alt={`Portrait of ${FULL_NAME}`}
+                width="512"
+                height="512"
+                fetchPriority="high"
+                decoding="async"
+              />
+            </div>
+            <figcaption className="hero__caption">
+              <span className="hero__name">{FULL_NAME}</span>
+              <span className="hero__role">Full-stack and Flutter developer</span>
+            </figcaption>
+          </figure>
+
+          <div className="who__text">
+            <h2 id="who-title">Building for web and mobile</h2>
+            <p className="lead">
+              I’m {FULL_NAME}, a full-stack developer in Fianarantsoa. I build Flutter apps and
+              the Symfony, React and PHP services behind them.
+            </p>
+            <p lang="fr">
+              Développeur malgache, je collabore aussi en français sur des applications mobiles
+              Flutter et des produits web full-stack.
+            </p>
+            <p>5+ years, 42 projects, one city.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };

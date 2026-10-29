@@ -31,7 +31,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ onViewAll 
               <div className={`w-3 h-3 rounded-full ring-4 ring-white dark:ring-slate-800 transition-colors ${exp.isPresent ? 'bg-primary dark:bg-blue-400' : 'bg-gray-400 dark:bg-slate-500 group-hover:bg-primary dark:group-hover:bg-blue-400'}`}></div>
             </div>
 
-            <div className="bg-gray-50 dark:bg-slate-700/40 rounded-2xl p-4 hover:shadow-md dark:hover:shadow-slate-900/40 transition-all cursor-pointer border border-transparent hover:border-gray-200 dark:hover:border-slate-600">
+            <div className="bg-gray-50 dark:bg-slate-700/40 rounded-2xl p-4 hover:shadow-md dark:hover:shadow-slate-900/40 transition-colors cursor-pointer border border-transparent hover:border-gray-200 dark:hover:border-slate-600">
               <div className="flex justify-between items-start mb-1">
                 <h3 className="font-bold text-gray-900 dark:text-white">{exp.role}</h3>
                 <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${exp.isPresent ? 'text-primary dark:text-blue-300 bg-primary/10 dark:bg-blue-500/20' : 'text-gray-500 dark:text-slate-300 bg-gray-200 dark:bg-slate-600'}`}>

@@ -63,7 +63,7 @@ export const AboutView: React.FC = () => {
               {SKILLS.map((skill, index) => (
                   <div 
                     key={skill.name} 
-                    className={`px-4 py-2 rounded-full border text-sm font-medium transition-all duration-300 hover:scale-105
+                    className={`px-4 py-2 rounded-full border text-sm font-medium transition-transform duration-300 hover:scale-105
                         ${index === 0 
                           ? 'bg-primary text-white border-primary shadow-md shadow-blue-900/20' 
                           : 'bg-white dark:bg-slate-700 text-gray-600 dark:text-slate-300 border-gray-200 dark:border-slate-600 hover:border-primary/30 dark:hover:border-blue-400/40'}`}
@@ -76,12 +76,12 @@ export const AboutView: React.FC = () => {
 
       {/* Focus Area */}
       <div className="bg-blue-50 dark:bg-slate-800/50 rounded-[2rem] p-6 mb-8 border border-blue-100 dark:border-slate-700">
-          <h2 className="font-bold text-primary dark:text-blue-400 text-xs uppercase tracking-wider mb-6">Focus Area</h2>
+          <h2 className="font-bold text-primary dark:text-blue-400 text-xs mb-6">Focus Area</h2>
           <div className="flex items-end justify-between px-2 h-32">
               {FOCUS_AREA.map((area) => (
                   <div key={area.label} className="flex flex-col items-center gap-2 group">
-                      <div className={`w-8 md:w-12 rounded-t-lg transition-all duration-500 group-hover:scale-y-110 origin-bottom ${area.color} ${area.height} shadow-sm`}></div>
-                      <span className="text-[10px] font-bold text-gray-500 dark:text-slate-400 uppercase">{area.label}</span>
+                      <div className={`w-8 md:w-12 rounded-t-lg transition-transform duration-500 group-hover:scale-y-110 origin-bottom ${area.color} ${area.height} shadow-sm`}></div>
+                      <span className="text-[10px] font-bold text-gray-500 dark:text-slate-400">{area.label}</span>
                   </div>
               ))}
           </div>

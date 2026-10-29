@@ -15,7 +15,7 @@ export const StatsTile: React.FC = () => {
         </div>
         <div className="relative z-10 mt-4">
           <h2 className="text-5xl md:text-6xl font-black text-on-surface mb-1 tracking-tight">5+</h2>
-          <p className="text-on-surface-variant text-sm font-semibold uppercase tracking-wider">Years Exp.</p>
+          <p className="text-on-surface-variant text-sm font-semibold">Years Exp.</p>
         </div>
         {/* Decorative circle */}
         <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-white/10 rounded-full group-hover:scale-150 transition-transform duration-700 ease-out blur-[2px]"></div>
@@ -33,7 +33,7 @@ export const StatsTile: React.FC = () => {
         </div>
         <div className="relative z-10 mt-4">
           <h2 className="text-5xl md:text-6xl font-black text-on-surface mb-1 tracking-tight">42</h2>
-          <p className="text-on-surface-variant text-sm font-semibold uppercase tracking-wider">Projects Built</p>
+          <p className="text-on-surface-variant text-sm font-semibold">Projects Built</p>
         </div>
         {/* Subtle glow effect on hover */}
         <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-primary/10 rounded-full blur-[30px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>

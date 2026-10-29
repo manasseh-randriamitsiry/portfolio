@@ -2,6 +2,13 @@ import { Experience, Skill } from './types';
 
 export const PROFILE_IMAGE = "https://lh3.googleusercontent.com/a/ACg8ocLCHN66F8m6vEpa_fRwg8sXh90P8Rm0adSqIWx73yqrClTYt0Y3ZA=s576-c-no";
 
+// The full name, surname first as it is written on documents. Every part of it
+// appears in the page and its metadata so a search for any one word finds it.
+export const FULL_NAME = "Manassé Randriamitsiry Valimbavaka Nandrasana";
+
+// The portrait shown on the home page; the user's own GitHub avatar.
+export const PORTRAIT_IMAGE = "https://avatars.githubusercontent.com/u/70688966?v=4&size=512";
+
 // Google Maps style static image centered on Fianarantsoa, Madagascar
 export const MAP_TEXTURE = "/fianarantsoa_map.png";
 
@@ -39,13 +46,28 @@ export const FEATURED_PROJECTS = {
   }
 };
 
+// One line per featured project, short enough to sit in an index row.
+// The full descriptions stay in FEATURED_PROJECTS and in githubService.ts.
+export const WORK_LINES: Record<string, string> = {
+  "fihirana-JFF": "A hymnal that works offline.",
+  "permah-mvvn": "An MVVM template for Flutter.",
+  "event_symfony": "An events backend in Symfony."
+};
+
+// The repository name, read as a project title.
+export const PROJECT_TITLES: Record<string, string> = {
+  "fihirana-JFF": "Fihirana JFF",
+  "permah-mvvn": "Permah MVVM",
+  "event_symfony": "Event Manager"
+};
+
 export const EXPERIENCES: Experience[] = [
   {
     id: 1,
     role: "Mobile & Flutter Developer",
     company: "Digital Concepts",
-    period: "Jan 2025 - Present",
-    description: "Developing cross-platform mobile applications with Flutter, implementing custom UI/UX designs and integrating with backend services.",
+    period: "Jan 2026 - Present",
+    description: "Building Flutter applications, then shipping them through TestFlight to the App Store, with custom UI/UX and backend integration.",
     isPresent: true,
     type: 'work'
   },

@@ -3,20 +3,20 @@ import { ViewState } from '../types';
 
 const PAGE_METADATA: Record<ViewState, { title: string; description: string }> = {
   home: {
-    title: 'Manassé Randriamitsiry Valimbavaka | Malagasy Full-Stack Developer',
-    description: 'Portfolio of Manassé, Manasse, and Manasseh Randriamitsiry Valimbavaka, a Malagasy full-stack developer in Fianarantsoa specializing in Flutter, Symfony, React, PHP, and mobile applications.'
+    title: 'RANDRIAMITSIRY Valimbavaka Nandrasana Manassé | Flutter and Full-Stack Developer',
+    description: 'Portfolio of Manassé Randriamitsiry Valimbavaka Nandrasana, a Malagasy full-stack developer in Fianarantsoa. Flutter apps shipped to the App Store and TestFlight, with Symfony, React, PHP and Node.js behind them.'
   },
   works: {
-    title: 'Flutter, Symfony & React Projects | Manassé Randriamitsiry',
-    description: 'Selected Flutter mobile, Symfony backend, React, and PHP projects by Manassé Randriamitsiry Valimbavaka, a Malagasy full-stack developer.'
+    title: 'Flutter, Symfony and React Projects | Manassé Randriamitsiry Valimbavaka Nandrasana',
+    description: 'Selected Flutter mobile, Symfony backend, React and PHP projects by Manassé Randriamitsiry Valimbavaka Nandrasana, a Malagasy full-stack developer.'
   },
   resume: {
-    title: 'Developer Resume | Manassé Randriamitsiry Valimbavaka',
-    description: 'Resume of Manassé Randriamitsiry Valimbavaka, a Malagasy Flutter, Symfony, React, and PHP developer based in Fianarantsoa, Madagascar.'
+    title: 'Developer Resume | Manassé Randriamitsiry Valimbavaka Nandrasana',
+    description: 'Resume of Manassé Randriamitsiry Valimbavaka Nandrasana, also known as Manasseh Randriamitsiry, a Flutter, Symfony, React and PHP developer in Fianarantsoa, Madagascar.'
   },
   contact: {
-    title: 'Hire a Malagasy Flutter & Full-Stack Developer | Manassé Randriamitsiry',
-    description: 'Contact Manassé Randriamitsiry Valimbavaka for Flutter mobile apps and full-stack web development projects in Madagascar and remotely.'
+    title: 'Hire a Malagasy Flutter Developer | Manassé Nandrasana Randriamitsiry',
+    description: 'Contact Manassé Randriamitsiry Valimbavaka Nandrasana for Flutter mobile apps, App Store and TestFlight delivery, and full-stack web development in Madagascar or remotely.'
   }
 };
 
