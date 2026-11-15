@@ -1,5 +1,6 @@
 import React from 'react';
 import { ViewState } from '../types';
+import { ContourField } from './ContourField';
 import { FULL_NAME, FULL_NAME_IN_PROSE, PORTRAIT_IMAGE } from '../constants';
 
 interface HeroSectionProps {
@@ -10,6 +11,9 @@ interface HeroSectionProps {
 export const HeroSection: React.FC<HeroSectionProps> = ({ setView, preloadView }) => {
   return (
     <section className="hero" aria-labelledby="hero-title">
+      {/* The ground the hero stands on: a background layer, never a section. */}
+      <ContourField />
+
       <div className="container grid">
         <div className="hero__head">
           <h1 id="hero-title">Flutter on the phone, Symfony behind.</h1>
