@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 /**
- * The contour field: the page's hairlines given depth, drawn as ground between
- * the hero and the work index. It holds no frame, no caption and no box, and it
- * fades into the paper at every edge, so it reads as part of the page rather
- * than as a picture placed on it. three loads on approach, never in the first
- * payload, and the loop stops off screen and under prefers-reduced-motion.
+ * The contour field: the page's hairlines given depth, laid under the hero's
+ * own words. On a desk it is ground filling the hero; on a phone it is water
+ * below the waterline, leaning with the device. It holds no frame, no caption
+ * and no box, and it fades into the paper at every edge, so it reads as part of
+ * the page rather than as a picture placed on it. three loads on approach,
+ * never in the first payload, and the loop stops off screen and under
+ * prefers-reduced-motion.
  */
 export const ContourField: React.FC = () => {
   const hostRef = useRef<HTMLDivElement>(null);

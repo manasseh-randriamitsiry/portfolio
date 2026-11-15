@@ -13,7 +13,7 @@
 /* Hallmark · v2 refinements: every part of the name (RANDRIAMITSIRY, Valimbavaka, Nandrasana, Manassé) in the titles, the author tag and the JSON-LD · App Store and TestFlight named in the hero record, the bio and the layer table · Digital Concepts dated Jan 2026 · the phone nav a huhu.to capsule (999px) with the tablet rail held at 24px · the hero compacted above 90rem so 1920x1080 holds it */
 /* Hallmark · v3 radius: one role-based scale replaces the square Specimen shape · controls 10px, plates 16px, tinted bands 28px, nav pill 999px · the bands cap to the content column so their corners sit on paper, not the screen edge · rules and hairlines stay square
  * Hallmark · v3.1 radius completion: the masthead wordmark and its nav links join the controls at 10px · the spec table and the experience rows close into hairline-framed plates at 16px, cells and rows set in from the frame so no text touches a corner · the double rule survives as the table head's rule */
-/* Hallmark · contour: the hero's ground, not a section · the page's hairlines given depth, drawn as single pixel rows in the accent ink on a layer under the hero's own words, so a visitor meets it on the first screen with no scroll · on a phone the camera is rolled and the rows run off the top right corner and under the bottom left one · rows are spaced by distance and their waves flatten with it, so the field fills the hero and the far rows stay calm instead of tangling · the ground shifts with the scroll, the framing parallaxes with the pointer, and the surface lifts under it · three is fetched on approach into its own chunk, and the loop stops off screen and under prefers-reduced-motion */
+/* Hallmark · contour: the hero's ground, not a section · the page's hairlines given depth, drawn as single pixel rows in the accent ink on a layer under the hero's own words, so a visitor meets it on the first screen with no scroll · on a phone the camera sits level and the same rows are water below the waterline, rippling out from two drifting centres and leaning with the device's own tilt · rows are spaced by distance and their waves flatten with it, so the field fills the hero and the far rows stay calm instead of tangling · the ground shifts with the scroll, the framing parallaxes with the pointer, and the surface lifts under it · three is fetched on approach into its own chunk, and the loop stops off screen and under prefers-reduced-motion */
 @import url("./tokens.css");
 @import url("./base.css");
 
@@ -714,15 +714,18 @@ textarea:disabled {
   height: 100%;
 }
 
-/* A phone gets the ground on the diagonal, and only as deep as the first
-   screen: the hero runs on for another screen of colophon, and a texture under
-   the bio would be cost without a reader. */
+/* A phone gets water instead of ground: the camera is level, so the upper half
+   of the layer is bare paper and the lower half is a ripple surface, and the
+   mask dissolves the waterline and the layer's own bottom edge rather than the
+   corners. It reaches only as deep as the first screen; the hero runs on for
+   another screen of colophon, and a texture under the bio would be cost
+   without a reader. */
 @media (max-width: 60rem) {
   .contour {
     inset-block: 0 auto;
     height: min(100svh, 760px);
-    -webkit-mask-image: radial-gradient(130% 120% at 52% 48%, #000 48%, transparent 94%);
-    mask-image: radial-gradient(130% 120% at 52% 48%, #000 48%, transparent 94%);
+    -webkit-mask-image: linear-gradient(180deg, transparent 26%, #000 52%, #000 92%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 26%, #000 52%, #000 92%, transparent 100%);
   }
 }
 
